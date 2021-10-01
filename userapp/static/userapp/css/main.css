@@ -6,7 +6,7 @@
 }
 @font-face {
   font-family: "Gordita";
-  src: url("/fonts/Product\ Sans\ Bold.ttf");
+  src: url("../fonts/Product\ Sans\ Bold.ttf");
 }
 :root {
   --default-color: rgb(0, 2, 148);
