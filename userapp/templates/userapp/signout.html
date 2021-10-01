@@ -1,0 +1,18 @@
+{% extends 'userapp/main.html' %} {% block title %} Logout {% endblock title %}
+{% load crispy_forms_tags %}
+{%block content %}
+
+<div class="container border p-3 my-3">
+    <div class="row text-center">
+        <div class="col-12 p-0">
+            <p class="display border-bottom p-2">You have been Logged out</p>
+        </div>
+        <div class="col-12 p-0 ">
+            <p>
+                <a href="{% url 'userapp:auth-login' %}" class="text-right">Sign-in Again</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

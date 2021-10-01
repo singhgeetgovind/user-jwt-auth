@@ -1,0 +1,35 @@
+{% extends 'userapp/main.html' %} {% block title %} Login {% endblock title %}
+{% load crispy_forms_tags %}
+{%block content %}
+<div class="conatiner m-4">
+    
+  <form method="POST">
+  
+  <div class="row p-2 justify-content-center">
+      <div class="col-md-6 border p-5">
+        {% csrf_token %}
+        {% for message in messages %}
+          {% if message.tags == 'error' %}
+            <div class="col alert alert-danger p-2 mt-2 ">
+              {{ message }} <span>:(</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+        <div class="form-group form-input ">
+        <input type="email" class="form-control" placeholder="Email address*" name="email" >
+        </div>
+        <div class="form-group form-input ">
+        <input type="password" class="form-control" placeholder="Password*" name="password" >
+        </div>
+        <div class="form-group text-center">
+          <input type="submit" value="Login"class=" btn btn-md btn-primary">
+        </div>
+        <div class="form-group text-center">
+          <a class="text-right" href={% url 'userapp:auth-register' %}>Don't have an account? Register</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

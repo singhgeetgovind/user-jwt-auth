@@ -1,0 +1,44 @@
+{% extends 'userapp/main.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<div class="container-fluid">
+{% if messages %}
+     {% for message in messages %}
+        <div class="col alert alert-{{message.tags}} p-2 mt-2">
+            {{ message }} <span>:)</span>
+        </div>
+    {% endfor %}
+{% endif %}
+    <div class="container-fluid mt-2">  <!--table design-->
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped table-hover user-select-none">
+                    <thead class="thead-dark">
+                            <tr class="">
+                                <th colspan="5" class="text-center" >User Details</th>
+                            </tr>
+                            <tr class="">
+                                <th>Id</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                             {% for resp in response %}
+                            <tr class="table-success">
+                         
+                                <td class="">{{resp.id}}</td>
+                                <td class="">{{resp.username}}</td>
+                                <td class="">{{resp.email}}</td>
+                            
+                                <td class=""><a href="{% url 'userapp:edit' resp.id%}">Edit</a></td>
+                                <td class=""><a href="{% url 'userapp:delete' resp.id%}">Delete</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+{% endblock content %}

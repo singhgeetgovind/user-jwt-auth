@@ -1,0 +1,26 @@
+{% extends 'userapp/main.html' %} 
+{% block title %} Register {% endblock title %}
+{% load crispy_forms_tags %}
+{%block content %}
+<div class="conatiner">
+  <form method="post">
+    {% csrf_token %}
+    <div class="row p-3 justify-content-center">
+        <div class="col-sm-6 border p-4">
+          <div class="form-group form-input ">
+              {{forms|crispy}}
+           
+          </div>
+          <div class="form-group text-center">
+            <input type="submit" value="Register" class=" btn btn-primary">
+          </div>
+          <div class="form-group text-center">
+            <a href="{% url 'userapp:auth-login' %}" class="text-right">Already have an account? Login</a>
+          </div>
+        </div>
+      </div>
+  </form>
+</div>
+
+
+{% endblock %}

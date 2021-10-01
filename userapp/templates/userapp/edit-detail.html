@@ -1,0 +1,17 @@
+{% extends 'userapp/main.html' %} 
+{% block title %}{{label}}{% endblock title %}
+{% load crispy_forms_tags %}
+{%block content %}
+<div class="container-fluid  my-2 mx-2 p-2">
+<div class="row justify-content-center p-2">
+<div class="col-6">
+        <p class="alert alert-primary">Update User Detail</p>
+    <form class="form" method="Post">
+        {% csrf_token %}
+       {{form}}
+        <input type="submit" name="submit" value="Update" class="btn btn-md mt-2 btn-primary">
+    </form>
+</div>
+</div>
+</div>
+{% endblock content %}
