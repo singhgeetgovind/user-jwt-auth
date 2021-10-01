@@ -26,7 +26,7 @@ class CustomUser(AbstractBaseUser,PermissionsMixin):
 
 class Token(models.Model):
     user = models.OneToOneField(CustomUser,blank=False,on_delete=models.CASCADE)
-    token_key = models.CharField(max_length=150,default='')
+    token_key = models.CharField(max_length=500,default='')
 
     def __str__(self):
         return str(self.user)
