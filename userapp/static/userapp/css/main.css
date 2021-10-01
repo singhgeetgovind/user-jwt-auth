@@ -1,13 +1,10 @@
 * {
-  font-family: "Gordita";
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
  font-size: 14px;
 }
-@font-face {
-  font-family: "Gordita";
-  src: url("../fonts/Product\ Sans\ Bold.ttf");
-}
+
 :root {
   --default-color: rgb(0, 2, 148);
   --primary-color: rgb(50, 146, 255);/*rgb(63, 121, 247)*/
