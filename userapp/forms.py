@@ -5,7 +5,7 @@ from django.forms import ModelForm,Form
 class SignUpForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'password1','password2']
+        fields = ['username', 'email', 'password1','password2','address']
 
 class SignInForm(ModelForm):
     class Meta:
