@@ -1,0 +1,1 @@
+web gunicorn usermanagerproj.wsgi --log-file -
