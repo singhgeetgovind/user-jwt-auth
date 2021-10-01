@@ -49,7 +49,7 @@ def signin(request):
                 user=authenticate(request,username=email,password=password)
                 if user is not None:
                         login(request,user)
-                        resp= requests.post("http://127.0.0.1:8000/api/token/",
+                        resp= requests.post("https://userjwtauth.herokuapp.com/api/token/",
                         data={'email':email, 'password':password}).json()
                         token=(resp['access'])
                         customuser = CustomUser.objects.filter(email=email).first()
@@ -67,7 +67,7 @@ def signin(request):
 @login_required(login_url='/login')
 def listuserdetail(request):
         customuser=CustomUser.objects.get(id=request.user.id)
-        resp=requests.get("http://127.0.0.1:8000/api/",headers={'Authorization':'Bearer '+customuser.token.token_key})
+        resp=requests.get("https://userjwtauth.herokuapp.com/api/",headers={'Authorization':'Bearer '+customuser.token.token_key})
         if resp.status_code == HTTP_401_UNAUTHORIZED:
             logout(request)
             return redirect('login/')
